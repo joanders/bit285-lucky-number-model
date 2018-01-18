@@ -19,7 +19,8 @@
     {
         <div class="spinner">
             <input type="submit" value="SPIN" />
-            <div>@ViewBag.A</div><div>@ViewBag.B</div><div>@ViewBag.C</div>
+            @{ int[] spinner = Model.Spinner;}
+            <div>@spinner[0]</div><div>@spinner[1]</div><div>@spinner[2]</div>
         </div>
         <h1>Lucky Number @Model.Number</h1>
         <p>Your Current Balance is: <span class="register"> $ @Model.Balance</span></p>
@@ -28,7 +29,7 @@
             @Html.EditorFor(model => model.Number) 
             @Html.ValidationMessageFor(model => model.Number)
         </div>
-        <div class="gameover">@ViewBag.Error</div>
+        <div class="gameover">@Model.GameMessage</div>
         if (Model.isWinner)
         {
             <img src="~/Images/LuckySevenExercise.jpg" style="display:block" alt="coins" />
@@ -38,3 +39,4 @@
     }
 </body>
 </html>
+
